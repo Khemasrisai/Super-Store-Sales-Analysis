@@ -5,32 +5,32 @@ import seaborn as sb
 
 
 df = pd.read_csv("C:\\Users\\giris\\Documents\\python project\\superstore-dataset-py-pro.csv")
-# print(df)
+print(df)
 
 
 #Summary of this dataset
-# print(df.head())
-# print(df.describe())
-# print(df.info())
-# print(df.nunique())
+print(df.head())
+print(df.describe())
+print(df.info())
+print(df.nunique())
 
 
 #Data Cleaning
-# print(df.isnull().sum().sum())
-# print(df.dropna())
+print(df.isnull().sum().sum())
+print(df.dropna())
 
 
 #Correlation
-# c=df.corr(numeric_only=True)
-# print(c)
-# sb.heatmap(c,cmap="coolwarm",annot=True,linewidth=5,fmt="0.2f")
-# mlt.xticks(rotation=360)
-# mlt.show()
+c=df.corr(numeric_only=True)
+print(c)
+sb.heatmap(c,cmap="coolwarm",annot=True,linewidth=5,fmt="0.2f")
+mlt.xticks(rotation=360)
+mlt.show()
 
 
 #Covariance
-# cv=df.cov(numeric_only=True)
-# print(cv)
+cv=df.cov(numeric_only=True)
+print(cv)
 
 
 
