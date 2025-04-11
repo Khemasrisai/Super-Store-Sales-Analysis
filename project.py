@@ -47,4 +47,12 @@ mlt.title('Sales Distribution by Region')
 mlt.axis('equal')
 mlt.show() 
 
-    
+
+#Bar-Plot
+mlt.figure(figsize=(10, 6))
+sb.barplot(x='Sub-Category', y='Profit', data=df, estimator=sum, errorbar=None)
+mlt.title('Total Profit by Sub-Category')
+mlt.xticks(rotation=45)
+mlt.tight_layout()
+mlt.show()
+
