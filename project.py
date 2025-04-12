@@ -56,3 +56,21 @@ mlt.xticks(rotation=45)
 mlt.tight_layout()
 mlt.show()
 
+#Scatter-Plot
+mlt.figure(figsize=(8, 6))
+sb.scatterplot(data=df, x='Discount', y='Profit', hue='Category')
+mlt.title('Discount vs Profit')
+mlt.xlabel('Discount')
+mlt.ylabel('Profit')
+mlt.tight_layout()
+mlt.show()
+
+#Line-Graph
+df['Order Date'] = pd.to_datetime(df['Order Date'])
+df.set_index('Order Date', inplace=True)
+monthly_sales = df['Sales'].resample('ME').sum()
+
+mlt.plot(monthly_sales, marker='o', color='blue')
+mlt.title('Monthly Sales Trend')
+mlt.xlabel('Month')
+mlt.ylabel('Total Sales')
