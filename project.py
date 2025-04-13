@@ -74,3 +74,19 @@ mlt.plot(monthly_sales, marker='o', color='blue')
 mlt.title('Monthly Sales Trend')
 mlt.xlabel('Month')
 mlt.ylabel('Total Sales')
+
+
+#Pair-Plot
+data = df[['Sales', 'Profit', 'Discount', 'Region']]
+sb.pairplot(data, hue='Region')
+mlt.show()
+
+#Box-Plot
+mlt.figure(figsize=(12, 6))
+sb.boxplot(x='Sub-Category', y='Sales', data=df)
+mlt.title('Sales Distribution by Sub-Category')
+mlt.xticks(rotation=45)
+mlt.tight_layout()
+mlt.show()
+
+
