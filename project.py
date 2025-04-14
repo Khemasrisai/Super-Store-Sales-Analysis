@@ -90,3 +90,13 @@ mlt.tight_layout()
 mlt.show()
 
 
+#Combination of Bar-Plot and Line-Plot
+category_sales = df.groupby('Category')['Profit'].sum().reset_index()
+
+mlt.figure(figsize=(8, 5))
+sb.barplot(x='Category', y='Profit', data=category_sales, color="lightgreen")
+sb.lineplot(x='Category', y='Profit', data=category_sales, color="green", marker='o')
+mlt.title('Profit by Category')
+mlt.xlabel('Category')
+mlt.ylabel('Total Profit')
+mlt.show()
