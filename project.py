@@ -100,3 +100,50 @@ mlt.title('Profit by Category')
 mlt.xlabel('Category')
 mlt.ylabel('Total Profit')
 mlt.show()
+
+
+#OBJECTIVE 4 - (Outliers And Anomaly Detection)
+#Correlation
+columns_to_check = ['Sales', 'Discount', 'Profit', 'Quantity']
+selected_df = df[columns_to_check]
+# Correlation
+c = selected_df.corr()
+print("Correlation:\n", c)
+
+print("\n")
+
+# Covariance
+cv = selected_df.cov()
+print("Covariance: \n", cv)
+
+print("\n")
+
+# Outlier detection using IQR
+Q1 = selected_df.quantile(0.25)
+Q3 = selected_df.quantile(0.75)
+IQR = Q3 - Q1
+
+# Lower and Upper Bounds
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+print("\nLower Bound:\n", lower_bound)
+print("\nUpper Bound:\n", upper_bound)
+
+print("\n")
+
+outlier = selected_df[(selected_df < lower_bound) | (selected_df > upper_bound)].sum()
+print("\nOutliers:\n", outlier)
+
+print("\n")
+
+sb.boxplot(data=selected_df)
+mlt.title("Boxplot: Sales, Discount, Profit, Quantity")
+
+print("\n")
+
+from scipy import stats
+score=stats.zscore(df[columns_to_check],nan_policy='omit') 
+outliers=(abs(score>3)).sum(axis=0)
+print(outliers)
+
+mlt.show()
