@@ -147,3 +147,15 @@ outliers=(abs(score>3)).sum(axis=0)
 print(outliers)
 
 mlt.show()
+
+
+
+# OBJECTIVE 5 - (Using HeatMap For Interdependencies)
+numeric_data = df[['Sales', 'Profit', 'Discount', 'Quantity']]
+corr = numeric_data.corr()
+
+# Heatmap
+mlt.figure(figsize=(8, 6))
+sb.heatmap(corr, annot=True, cmap='coolwarm', linewidths=2, fmt=".2f")
+mlt.title("Correlation Between Sales, Profit, Discount, and Quantity")
+mlt.show()
